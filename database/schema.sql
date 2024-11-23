@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `discordUserId` text NOT NULL,
   `discordName` text NOT NULL,
   `isVerified` boolean NOT NULL DEFAULT 0,
-  `isVerified` boolean NOT NULL DEFAULT 0,
+  `isAllied` boolean NOT NULL DEFAULT 0,
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
