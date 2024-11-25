@@ -19,7 +19,8 @@ class OrderButton(ui.Button):
         if not (get(ordersCategory.text_channels, name=orderChannelName)):
             orderChannel = await guild.create_text_channel(name=orderChannelName, category=ordersCategory)
             await interaction.response.send_message("Please head to {} to complete your order.".format(orderChannel.mention), ephemeral=True)
-            await orderChannel.send(view=DropdownView())
+            await orderChannel.send(embed=DropdownView.buildOrderEmbed(0, 0, 0))
+            await orderChannel.send(view=DropdownView(orderChannel))
 
         else:
             await interaction.response.send_message("You already have an open order! Please close it before submitting a new order.", ephemeral=True)
