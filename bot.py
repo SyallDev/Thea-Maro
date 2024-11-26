@@ -60,7 +60,8 @@ intents.message_content = True
 intents.presences = True
 """
 
-intents = discord.Intents.default()
+# changed to all intents because the defaults have changed since this template was made and no longer work
+intents = discord.Intents.all()
 
 """
 Uncomment this if you want to use prefix (normal) commands.
@@ -140,6 +141,7 @@ class DiscordBot(commands.Bot):
         self.logger = logger
         self.config = config
         self.database = None
+
 
     async def init_db(self) -> None:
         async with aiosqlite.connect(
